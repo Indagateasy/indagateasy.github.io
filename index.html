@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<h1 id="Hi">Hi : </h1>
+	<button id="HiButton"></button>
+</body>
+<script type="text/javascript">
+	const config = {
+	  apiKey: "AIzaSyA68NdtdRYNSt__2FpEIjiUvZQNAcZAWrA",
+	  authDomain: "qwerty-100.firebaseapp.com",
+	  // databaseURL: "https://ClickNumbers.firebaseio.com/",
+	  projectId: "qwerty-100",
+	  storageBucket: "qwerty-100.appspot.com",
+	  messagingSenderId: "580963028147",
+	  appId: "1:580963028147:web:f7aa0fca6ad0db6e9034c6",
+	  measurementId: "G-B16ZG7VPVQ"
+	};
+	
+	firebase.initializeApp(config);
+	var db = firebase.firestore();
+
+	let ii = 0
+
+	const Documen = db.doc('qwerty-100-default-rtdb/Numbers')
+
+	const Header = document.querySelector("#Hi")
+	const MyButton = document.querySelector("#HiButton")
+
+	MyButton.addEventListener('click',() => {
+		ii++;
+		console.log(ii);
+		Documen.set({
+			Numbers : ii
+		}).then(() => {
+			console.log('Success')
+		}).catch((error) => {
+			console.log(error)
+		})
+	})
+
+</script>
+</html>
