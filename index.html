@@ -38,7 +38,7 @@
 	let BLA = () => {
 		Documen.onSnapshot((doc) => {
 			if (doc && doc.exists){
-				const MyData = db.doc('qwerty-100-default-rtdb/Numbers').data();
+				const MyData = Documen.Data();
 				ii = MyData.Numbers;
 			}
 		})
