@@ -31,7 +31,18 @@
 	firebase.initializeApp(config);
 	var db = firebase.firestore();
 
-	let ii = 0
+	let ii;
+
+	let BLA = () => {
+		Documen.onSnapshot((doc) => {
+			if (doc && doc.exists){
+				const MyData = Documen.data();
+				ii = MyData.Numbers;
+			}
+		})
+	}
+
+	BLA()
 
 	const Documen = db.doc('qwerty-100-default-rtdb/Numbers')
 
@@ -49,16 +60,6 @@
 			console.log(error)
 		})
 	})
-
-	let BLA = () => {
-		Documen.onSnapshot((doc) => {
-			if (doc && doc.exists){
-				const MyData = Documen.data();
-				ii = MyData.Numbers;
-			}
-		})
-	}
-	BLA()
 
 </script>
 </html>
