@@ -38,7 +38,7 @@
 	let BLA = () => {
 		Documen.onSnapshot((doc) => {
 			if (doc && doc.exists){
-				const MyData = Documen.Data();
+				const MyData = Documen.data();
 				ii = MyData.Numbers;
 			}
 		})
